@@ -25,9 +25,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$name, $email, password_hash($password, PASSWORD_DEFAULT)]);
             $success = '登録が完了しました。ログインしてください。';
         }
+      
+        }
     }
-}
+
 ?>
+<?php if ($success): ?>
+    <p style="color:green;"><?php echo htmlspecialchars($success); ?></p>
+    <p>ログインページへは<a href="login.php">こちら</a></p>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -37,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>ユーザー登録</title>
 </head>
 <body>
-    <h1>ユーザー登録</h1>
+    <h1 class="title">ToDo</h1>
+    <h2>ユーザー登録</h2>
 
     <?php if ($error): ?>
         <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>

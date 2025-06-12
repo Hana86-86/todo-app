@@ -31,7 +31,6 @@ $user = $stmt->fetch();
     <p>Mail: <?= htmlspecialchars($user['email']) ?></p>
 
     <!--ユーザーのToDo一覧-->
-    <h2>あなたのToDoリスト</h2>
     <ul>
     <?php
     $stmt = $pdo->prepare('SELECT * FROM todos WHERE user_id = ? ORDER BY created_at DESC');
@@ -69,7 +68,8 @@ echo '</li>';
 }
 ?>
     </ul>
-    <h2>新しいToDoを追加</h2>
+    <h1 class="title">ToDo</h1>
+    <h2>新しいタスクの追加</h2>
     <form action="add.php"method= "POST" >
         <label >
             タイトル: <input type="text" name="title" required>

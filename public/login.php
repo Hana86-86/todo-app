@@ -18,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD']=== 'POST'){
  $stmt->execute([$email]);
  $user = $stmt->fetch();
 
-if($user && $user['password'] === $password){
+if($user && password_verify($password, $user['password'])) {
+  // パスワードが一致した場合、セッションにユーザーIDを保存
   $_SESSION['user_id'] = $user['user_id'];
   header('Location: dashboard.php');
   exit;
@@ -33,16 +34,24 @@ if($user && $user['password'] === $password){
 <head>
     <meta charset="UTF-8">
     <title>ログイン</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h2>ログイン</h2>
+    <h1 class="title">ToDo</h1>
+    <div class="login-box">
+    <h2>login</h2>
     <?php if ($error): ?>
         <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
     <form method= "POST" action= "login.php">
         <input type= "email" name= "email" placeholder= "メールアドレス" required>
         <input type= "password" name= "password" placeholder="パスワード" required>
-        <button type= "submit">ログイン</button>
-    </form>    
+        <button type= "submit">login</button>
+    </form>
+    <p>ユーザー登録は <a href="register.php">こちら</a> から</p>
+    <p><a href="forgot_password.php">パスワードをお忘れの方はこちら</a></p>
+
+    </div>
 </body>
 </html>

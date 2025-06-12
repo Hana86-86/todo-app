@@ -1,5 +1,6 @@
-/* style.css - アースカラーテーマ + レイアウト整備 */
-
+/*-----------------------
+　共通スタイル（全画面共通）
+-----------------------*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f1ee; /* アースカラー背景 */
@@ -26,6 +27,8 @@ form {
 
 input[type="text"],
 input[type="date"],
+input[type="email"],
+input[type="password"],
 textarea {
   width: 100%;
   padding: 0.6em;
@@ -51,6 +54,10 @@ button:hover {
   background-color: #3a6348;
 }
 
+
+/*-----------------------
+　ToDo一覧表示画面（dashboard.php）
+-----------------------*/
 ul {
   list-style-type: none;
   padding: 0;
@@ -64,12 +71,12 @@ li {
   margin: 0.8em auto;
   padding: 1em;
   border-radius: 8px;
-  max-width: 500px; /* 幅を明示してバランスをとる */
+  max-width: 500px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-/* ToDoブロック全体 */
+/* ToDoリスト全体のボックス */
 .todo-list {
   max-width: 600px;
   margin: auto;
@@ -79,7 +86,7 @@ li {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* ToDoアイテム */
+/* 個々のToDoアイテム */
 .todo-item {
   background-color: #fff;
   border-radius: 8px;
@@ -107,8 +114,46 @@ li {
     justify-content: center;
     gap: 0.5rem;
 }
-/* ボタンのスタイル */
+
 .todo-buttons form {
   display: flex;
   margin-right: 5px;
+}
+
+
+/*-----------------------
+　ログイン画面・登録画面専用レイアウト（login.php / register.php）
+-----------------------*/
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #6e6658; /* アースカラーのブラウン系 */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);/* 優しい影 */
+  font-weight: bold;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-box {
+  width: 300px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.auth-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.auth-box p {
+  text-align: center;
+  margin-top: 1rem;
 }
