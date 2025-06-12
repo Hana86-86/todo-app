@@ -1,0 +1,26 @@
+# Mac特有のファイル
+.DS_Store
+
+# ログファイル全般
+*.log
+
+# 環境設定ファイル（例：環境変数）
+.env
+.env.*
+
+# Dockerで作られるMySQLの永続化データ
+mysql/data/
+
+# node_modules（フロントエンドがあれば）
+node_modules/
+
+# キャッシュ系
+*.cache
+*.tmp
+
+# VS Codeの設定フォルダ
+.vscode/
+
+# コンテナ関連
+*.pid
+docker-compose.override.yml
